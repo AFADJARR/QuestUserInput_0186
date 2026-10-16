@@ -2,8 +2,13 @@ package com.example.pertemuan_5
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.selection.selectable
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -22,12 +27,21 @@ fun FormDataDiri(modifier: Modifier =){
     var nama by remember {mutableStateOf("")}
     var alamat by remember {mutableStateOf("")}
     var jenis by remember {mutableStateOf("")}
-    var gender:List<String> = listOf("Laki-laki", "Perempuan")
+    val gender:List<String> = listOf("Laki-laki", "Perempuan")
 
     Column (modifier = Modifier.padding(50.dp),
         verticalArrangement = Arrangement.Top,
-        horizontalAlignment = Alignment.CenterHorizontally)
-
+        horizontalAlignment = Alignment.CenterHorizontally){
+        OutlinedTextField(
+            values = textNama,
+            singleLine = true,
+            shape = MaterialTheme.shapes.large,
+            modifier = Modifier.fillMaxWidth(),
+            label = {Text(text = "Nama Lengkap")},
+            onValueChange = {
+                val it = ""
+                textNama = it}
         )
+    }
     }
 }
