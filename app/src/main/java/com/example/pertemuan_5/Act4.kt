@@ -18,6 +18,8 @@ fun FormDataDiri(modifier: Modifier =){
     var textNama by remember {mutableStateOf("")}
     var textAlamat by remember {mutableStateOf("")}
     var textJK by remember {mutableStateOf("")}
+
+    var nama by remember {mutableStateOf("")}
         )
     }
 }
