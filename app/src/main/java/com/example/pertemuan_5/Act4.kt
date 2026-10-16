@@ -23,6 +23,11 @@ fun FormDataDiri(modifier: Modifier =){
     var alamat by remember {mutableStateOf("")}
     var jenis by remember {mutableStateOf("")}
     var gender:List<String> = listOf("Laki-laki", "Perempuan")
+
+    Column (modifier = Modifier.padding(50.dp),
+        verticalArrangement = Arrangement.Top,
+        horizontalAlignment = Alignment.CenterHorizontally)
+
         )
     }
 }
