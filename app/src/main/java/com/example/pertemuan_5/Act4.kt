@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.selection.selectable
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -31,17 +32,31 @@ fun FormDataDiri(modifier: Modifier =){
 
     Column (modifier = Modifier.padding(50.dp),
         verticalArrangement = Arrangement.Top,
-        horizontalAlignment = Alignment.CenterHorizontally){
+        horizontalAlignment = Alignment.CenterHorizontally) {
         OutlinedTextField(
-            values = textNama,
+            value = textNama,
             singleLine = true,
             shape = MaterialTheme.shapes.large,
             modifier = Modifier.fillMaxWidth(),
-            label = {Text(text = "Nama Lengkap")},
+            label = { Text(text = "Nama Lengkap") },
             onValueChange = {
-                val it = ""
-                textNama = it}
+                textNama = it
+            }
         )
+        Row {
+            gender.forEach { item ->
+                Row(
+                    modifier = Modifier.selectable(
+                    selected = textJK == item,
+                    onClick = { textJK = item }
+                ), verticalAlignment = Alignment.CenterVertically) {
+                    RadioButton(
+                        selected = textJK == item,
+                        onClick = { textJK = item
+                        })
+                    Text(item)
+                }
+            }
+        }
+
     }
-    }
-}
